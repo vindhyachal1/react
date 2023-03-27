@@ -72,3 +72,26 @@ button {
 button:hover {
   background-color: #005ea3;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* set the height to whatever you want */
+  font-size: 24px; /* set the font-size to whatever you want */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+}
+
+.form-container {
+  margin-top: 70px; /* Adjust this value based on the height of the header */
+}
+

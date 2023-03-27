@@ -34,30 +34,29 @@ function App() {
 
   return (
     <div className="App">
-      <div className="form">
-        <div className="left-column">
-          <h2>Left Column</h2>
-          <div>
-            <label>{inputFields[0].label}</label>
-            <input type="text" value={inputFields[0].value} onChange={(event) => handleInputChange(0, event)} />
+      <div className="header">Your Heading Text</div>
+      <div className="form-container">
+        <div className="form">
+          <div className="left-column">
+            {inputFields.slice(0, 2).map((inputField, index) => (
+              <div key={index}>
+                <label>{inputField.label}</label>
+                <input type="text" value={inputField.value} onChange={(event) => handleInputChange(index, event)} />
+              </div>
+            ))}
+            <button onClick={handleAddFields}>Add Inputs</button>
+            <button onClick={() => setInputFields([{ label: 'Input 1', value: '' }, { label: 'Input 2', value: '' }])}>Reset</button>
+            <button onClick={handleSubmit}>Submit</button>
           </div>
-          <div>
-            <label>{inputFields[1].label}</label>
-            <input type="text" value={inputFields[1].value} onChange={(event) => handleInputChange(1, event)} />
+          <div className="right-column">
+            {inputFields.slice(2).map((inputField, index) => (
+              <div key={index}>
+                <label>{inputField.label}</label>
+                <input type="text" value={inputField.value} onChange={(event) => handleInputChange(index + 2, event)} />
+                <button onClick={() => handleRemoveFields(index + 2)}>Remove</button>
+              </div>
+            ))}
           </div>
-          <button onClick={handleAddFields}>Add Inputs</button>
-          <button onClick={() => setInputFields([{ label: 'Input 1', value: '' }, { label: 'Input 2', value: '' }])}>Reset</button>
-          <button onClick={handleSubmit}>Submit</button>
-        </div>
-        <div className="right-column">
-          <h2>Right Column</h2>
-          {inputFields.slice(2).map((inputField, index) => (
-            <div key={index}>
-              <label>{inputField.label}</label>
-              <input type="text" value={inputField.value} onChange={(event) => handleInputChange(index + 2, event)} />
-              <button onClick={() => handleRemoveFields(index)}>Remove</button>
-            </div>
-          ))}
         </div>
       </div>
     </div>
