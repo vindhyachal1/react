@@ -82,6 +82,7 @@ button:hover {
 }
 
 .header {
+  height: 50px;
   position: fixed;
   top: 0;
   left: 0;
@@ -93,5 +94,6 @@ button:hover {
 
 .form-container {
   margin-top: 70px; /* Adjust this value based on the height of the header */
+  width: 80%;
 }
 
